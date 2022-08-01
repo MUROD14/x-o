@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Game</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="game-start ">
+    <h1 class="text-light">Select Mark</h1>
+    <div class="profile">
+      <div class="img">
+        <img src="./assets/f1.png" class="id" data-id="x" width="100px" height="100px">
+        <img src="./assets/m1.png" class="id" data-id="y" width="100px" height="100px">
+      </div>
+    </div>
+    <div class="profile">
+      <div class="img">
+        <img src="./assets/f2.png" class="id" data-id="x2" width="100px" height="100px">
+        <img src="./assets/m2.png" class="id" data-id="y2" width="100px" height="100px">
+      </div>
+    </div>
+    <button class="primary-btn" id="startBtn">Start Game</button>
+  </div>
+  <!-- Game Board -->
+  <div class="container">
+    <div class="board" id="board">
+      <div class="block" data-cell></div>
+      <div class="block" data-cell></div>
+      <div class="block" data-cell></div>
+      <div class="block" data-cell></div>
+      <div class="block" data-cell></div>
+      <div class="block" data-cell></div>
+      <div class="block" data-cell></div>
+      <div class="block" data-cell></div>
+      <div class="block" data-cell></div>
+    </div>
+  </div>
+  <!-- Draw window -->
+  <div class="draw-msg">
+    <div class="draw">
+      <h1 class="text-center text-yellow">Draw</h1>
+    </div>
+    <button id="drawBtn" class="primary-btn">Play Again</button>
+  </div>
+  <!-- Winner window -->
+  <div class="winner-msg">
+    <h1 class="text-center text-yellow">Winner</h1>
+    <div class="winner"></div>
+    <button id="restartBtn" class="primary-btn">Restart</button>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

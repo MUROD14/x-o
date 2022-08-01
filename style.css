@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+:root {
+  --text-light: #e9e9e9;
+  --text-dark: #363636;
+  --text-btn: #816df2;
+  --text-yellow: #dae26a;
+  --text-selected: #34d399;
+  --cell-size: 100px;
+  /* img */
+  --f-1: url("./assets/f1.png");
+  --f-2: url("./assets/f2.png");
+  --m-1: url("./assets/m1.png");
+  --m-2: url("./assets/m2.png");
+}
+body {
+  background: var(--text-dark);
+}
+/* Utilities */
+.text-light {
+  color: var(--text-light);
+}
+.text-yellow {
+  color: var(--text-yellow);
+}
+.text-center {
+  text-align: center;
+}
+.primary-btn {
+  border: none;
+  background: var(--text-btn);
+  color: var(--text-light);
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 32px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.primary-btn:hover {
+  background: var(--text-yellow);
+  color: var(--text-dark);
+}
+.game-start > *:first-child {
+  padding-bottom: 20px;
+}
+.game-start .profile .img img {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.game-start .profile .img img:hover {
+  background: var(--text-yellow);
+}
+.game-start.hide {
+  display: none;
+}
+/* Board */
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  background: var(--text-light);
+  gap: 3px;
+}
+.block {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background: var(--text-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.board.x .block:not(.x):not(.y):hover {
+  background: var(--text-yellow) var(--f-1) center center / cover;
+}
+.board.x2 .block:not(.x2):not(.y2):hover {
+  background: var(--text-yellow) var(--f-2) center center / cover;
+}
+.board.y .block:not(.y):not(.x):hover {
+  background: var(--text-btn) var(--m-1) center center / cover;
+}
+.board.y2 .block:not(.y2):not(.x2):hover {
+  background: var(--text-btn) var(--m-2) center center / cover;
+}
+.block.x, .block.y,
+.block.x2, .block.y2 {
+  cursor: not-allowed;
+}
+
+.block.x {
+  background: var(--text-yellow) var(--f-1) center center / cover;
+}
+.block.y {
+  background: var(--text-yellow) var(--m-1) center center / cover;
+}
+.block.x2 {
+  background: var(--text-yellow) var(--f-2) center center / cover;
+}
+.block.y2 {
+  background: var(--text-yellow) var(--m-2) center center / cover;
+}
+/* Draw window */
+.game-start, .draw-msg, .winner-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #313131a1;
+}
+.draw-msg, .winner-msg {
+  display: none;
+}
+.draw-msg.show, .winner-msg.show {
+  display: flex;
+}
+.profile .img img.selected {
+  background: var(--text-selected);
+  border-radius: 20px;
+  transition: 0.2s ease;
+}
+
+@media (max-width: 400px) {
+  :root {
+    --cell-size: 80px;
+  }
+}
+@media (max-width: 290px) {
+  :root {
+    --cell-size: 60px;
+  }
+}
